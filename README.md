@@ -26,6 +26,18 @@ graph LR
 
 ## [Spring Cloud][spring cloud]
 
+Submit a message:
+
+```bash
+curl -X POST http://localhost:8080/ -H 'Content-Type: application/json' -d '{"name":"paul"}'
+```
+
+Submit a message that will error (no `name`):
+
+```bash
+curl -X POST http://localhost:8080/ -H 'Content-Type: application/json' -d '{"id":"123-456"}'
+```
+
 <!-- Links -->
 
 [rabbitmq]: https://www.rabbitmq.com/ "RabbitMQ"
