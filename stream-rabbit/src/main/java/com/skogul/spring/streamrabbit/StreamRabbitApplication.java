@@ -16,6 +16,9 @@ public class StreamRabbitApplication {
 	@Bean
 	public Function<Person, Person> processor() {
 		return person -> {
+			if (person.getName() == null) {
+				throw new RuntimeException("name cannot be null");
+			}
 			System.out.println("Received: " + person);
 			person.setProcessed(true);
 			return person;
