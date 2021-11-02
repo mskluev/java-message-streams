@@ -32,7 +32,7 @@ public class HttpSinkApplication {
     private StreamBridge streamBridge;
 
     public static void main(String[] args) {
-        SpringApplication.run(HttpSinkApplication.class, "--spring.cloud.stream.source=toStream");
+        SpringApplication.run(HttpSinkApplication.class, "--spring.cloud.stream.source=http-sink");
     }
 
     @SuppressWarnings("unchecked")
@@ -43,7 +43,7 @@ public class HttpSinkApplication {
         Map<String, String> payload = jsonMapper.readValue(body, Map.class);
         Message<?> message = MessageBuilder.withPayload(payload).build();
         logger.info("Data received: " + payload);
-        streamBridge.send("toStream-out-0", message);
+        streamBridge.send("http-sink-out-0", message);
     }
 
 }
