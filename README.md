@@ -14,10 +14,6 @@ Requirements:
 - Easy to add distributed tracing
 - Quorum and non-quorum queues
 
-TODO:
-
-- What if there is no binding on an exchange?
-
 **General Flow**
 
 ```mermaid
@@ -31,6 +27,8 @@ graph LR
 # Implementations
 
 ## [Spring Boot][spring boot] + [Spring Cloud][spring cloud]
+
+This combination hits all our requirements.
 
 ### Demo
 
@@ -51,9 +49,14 @@ graph LR
 
 [Publisher Confirms and Returns](https://github.com/spring-cloud/spring-cloud-stream-binder-rabbit#retry-with-the-rabbitmq-binder) details how to handle cases where no binding on the exchange exists (messages normally dropped).
 
+## [Quarkus][quarkus]
+
+Quarkus uses [small-rye which requires AMQP 1.0](https://smallrye.io/smallrye-reactive-messaging/smallrye-reactive-messaging/3.1/amqp/amqp.html#amqp-rabbitmq). This requires additional RabbitMQ configuration and does not fit my use case at the moment.
+
 <!-- Links -->
 
 [rabbitmq]: https://www.rabbitmq.com/ "RabbitMQ"
 [kafka]: https://kafka.apache.org/ "Apache Kafka"
 [spring boot]: https://spring.io/projects/spring-boot "Spring Boot"
 [spring cloud]: https://spring.io/projects/spring-cloud "Spring Cloud"
+[quarkus]: https://quarkus.io/ "Quarkus"
