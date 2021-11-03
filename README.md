@@ -11,6 +11,12 @@ Requirements:
 - Simple to scale (ie. more app instances -> more messages processed per second)
 - Configurable via environment variables or configuration file
 - Can detect when when no consumer is configured (messages are not lost to ether)
+- Easy to add distributed tracing
+
+TODO:
+
+- parametered logging
+- What if there is no binding on an exchange?
 
 **General Flow**
 
